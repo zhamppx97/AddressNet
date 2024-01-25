@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<AssemblyName>AddressNet</AssemblyName>
+		<RootNamespace>AddressNet</RootNamespace>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>zhamppx97</Authors>
+		<Description>Library to get other address</Description>
+		<Version>0.0.1</Version>
+		<Copyright>Copyright 2024</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<NeutralLanguage>en</NeutralLanguage>
+		<Nullable>enable</Nullable>
+		<NoWarn>$(NoWarn);nullable</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Services\TH\address.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Services\TH\address.json">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Text.Json" Version="8.0.1" />
+	</ItemGroup>
+
+</Project>
