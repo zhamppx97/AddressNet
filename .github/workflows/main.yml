@@ -15,8 +15,8 @@ jobs:
     - name: Set VERSION variable from tag
       run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
     - name: Pack
-      run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
+      run: dotnet pack --configuration Release
     - name: Push
-      run: dotnet nuget push AddressNet.${VERSION}.nupkg --source https://nuget.pkg.github.com/zhamppx97/index.json --api-key ${NUGET_PACKAGE_TOKEN}
+      run: dotnet nuget push src/AddressNet/bin/Release/*.nupkg --source https://nuget.pkg.github.com/zhamppx97/index.json --api-key ${NUGET_PACKAGE_TOKEN}
       env:
         NUGET_PACKAGE_TOKEN: ${{ secrets.NUGET_PACKAGE_TOKEN }}
