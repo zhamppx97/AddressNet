@@ -41,12 +41,3 @@ var result = AddressTH.GetByWords("กรุงเทพ");
 
 string[] result = AddressTH.GetByWordsToStringComplete("บ้านไผ่");
 ```
-
-
-
-<p align="left">
-	<img src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg" height="100" width="100" alt="Mona logo"/>
-</p>
-
-[![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/zhamppx97)
-
