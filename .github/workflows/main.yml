@@ -14,9 +14,29 @@ jobs:
         git branch --remote --contains | grep origin/main
     - name: Set VERSION variable from tag
       run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
-    - name: Pack
+      
+    #Build/pack the project
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Build and Pack NuGet package
       run: dotnet pack --configuration Release
-    - name: Push
-      run: dotnet nuget push src/AddressNet/bin/Release/*.nupkg --source https://nuget.pkg.github.com/zhamppx97/index.json --api-key ${NUGET_PACKAGE_TOKEN}
+    - name: Upload NuGet package to GitHub
+      uses: actions/upload-artifact@v2
+      with:
+        name: nugetPackage
+        path: src/AddressNet/bin/Release/*.nupkg
+        
+    #Push NuGet package to GitHub packages
+    - name: Download nuget package artifact
+      uses: actions/download-artifact@v1.0.0
+      with:
+        name: nugetPackage
+    - name: Prep packages
+      run: dotnet nuget add source --username zhamppx97 --password ${{ secrets.NUGET_PACKAGE_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/zhamppx97/index.json"
+    - name: Push package to GitHub packages 
+      run: dotnet nuget push nugetPackage/*.nupkg --api-key ${{ secrets.NUGET_PACKAGE_TOKEN }}  --source "github"
+      
       env:
         NUGET_PACKAGE_TOKEN: ${{ secrets.NUGET_PACKAGE_TOKEN }}
