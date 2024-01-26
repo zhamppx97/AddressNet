@@ -6,7 +6,9 @@
 		<RootNamespace>AddressNet</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>zhamppx97</Authors>
-		<Description>Library to get other address</Description>
+		<Description>Minimal library to retrieve addresses in countries.</Description>
+		<PackageProjectUrl>https://github.com/zhamppx97/AddressNet</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/zhamppx97/AddressNet</RepositoryUrl>
 		<Version>0.0.1</Version>
 		<Copyright>Copyright 2024</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>

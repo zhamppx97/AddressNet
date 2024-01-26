@@ -32,5 +32,28 @@ namespace AddressNet.Services.TH
         /// <param name="PostalCode">Postal code.</param>
         /// <returns>Address by postal code.</returns>
         public static IEnumerable<AddressThModel> GetByPostalCode(int postalCode) => _DataModel.Where(a => a.PostalCode == postalCode);
+
+        /// <summary>
+        /// Get address by contained words.
+        /// </summary>
+        /// <param name="Words">Words.</param>
+        /// <returns>Address by contained words.</returns>
+        public static IEnumerable<AddressThModel> GetByWords(string words) => _DataModel.Where(a => a.SubDistrict.Contains(words) || a.District.Contains(words) || a.Province.Contains(words));
+
+        /// <summary>
+        /// Get string array of address by contained words to string complete.
+        /// </summary>
+        /// <param name="Words">Words.</param>
+        /// <returns>String array  by contained words to string complete.</returns>
+        public static string[] GetByWordsToStringComplete(string words)
+        {
+            string[] res = new string[] { };
+            IEnumerable<AddressThModel> data = _DataModel.Where(a => a.SubDistrict.Contains(words) || a.District.Contains(words) || a.Province.Contains(words));
+            foreach (var item in data)
+            {
+                res = res.Append($"ตำบล {item.SubDistrict}, อำเภอ {item.District}, จังหวัด {item.Province}, รหัสไปรษณีย์ {item.PostalCode}").ToArray();
+            }
+            return res;
+        }
     }
 }
