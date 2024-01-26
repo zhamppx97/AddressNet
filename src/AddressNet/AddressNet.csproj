@@ -8,6 +8,7 @@
 		<Authors>zhamppx97</Authors>
 		<Description>Minimal library to retrieve addresses in countries.</Description>
 		<PackageProjectUrl>https://github.com/zhamppx97/AddressNet</PackageProjectUrl>
+		<PackageDescription>Minimal library to retrieve addresses in countries.</PackageDescription>
 		<RepositoryUrl>https://github.com/zhamppx97/AddressNet</RepositoryUrl>
 		<Version>0.0.1</Version>
 		<Copyright>Copyright 2024</Copyright>
@@ -15,6 +16,8 @@
 		<NeutralLanguage>en</NeutralLanguage>
 		<Nullable>enable</Nullable>
 		<NoWarn>$(NoWarn);nullable</NoWarn>
+		<Title>AddressNet</Title>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -24,6 +27,12 @@
 		<EmbeddedResource Include="Services\TH\address.json">
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include="..\..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 	<ItemGroup>
