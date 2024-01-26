@@ -9,6 +9,8 @@
 		<Description>Minimal library to retrieve addresses in countries.</Description>
 		<PackageProjectUrl>https://github.com/zhamppx97/AddressNet</PackageProjectUrl>
 		<PackageDescription>Minimal library to retrieve addresses in countries.</PackageDescription>
+		<PackageId>AddressNet</PackageId>
+		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/zhamppx97/AddressNet</RepositoryUrl>
 		<Version>0.0.1</Version>
 		<Copyright>Copyright 2024</Copyright>
@@ -29,10 +31,10 @@
 		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
-	  <None Include="..\..\README.md">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
