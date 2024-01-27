@@ -20,6 +20,7 @@
 		<NoWarn>$(NoWarn);nullable</NoWarn>
 		<Title>AddressNet</Title>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>icon.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -31,6 +32,10 @@
 		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
+		<None Include="..\..\img\icon.png">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
 		<None Include="..\..\README.md">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>

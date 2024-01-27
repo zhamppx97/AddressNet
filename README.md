@@ -1,3 +1,4 @@
+---
 ## AddressNet
 
 Minimal library to retrieve addresses in countries.
@@ -11,6 +12,7 @@ MediumRun : .NET 6.0.26 (6.0.2623.60508), X64 RyuJIT AVX2
 
 
 ```
+
 | Method                     | Mean       | Error      | StdDev     | Gen0    | Allocated |
 |--------------------------- |-----------:|-----------:|-----------:|--------:|----------:|
 | GetAllAddress              |   7.544 us |  0.6302 us |  0.9238 us | 28.5645 |   60032 B |
@@ -32,12 +34,33 @@ public class AddressThModel
 
 ```csharp
 using AddressNet.Services.TH;
+```
 
-var result = AddressTH.GetAllAddress();
+```csharp
+var result = AddressTH.GetAllAddress().ToList();
 
-var result = AddressTH.GetByPostalCode(10100);
+var result = AddressTH.GetByPostalCode(10100).ToList();
 
-var result = AddressTH.GetByWords("กรุงเทพ");
+var result = AddressTH.GetByWords("กรุงเทพ").ToList();
+```
 
+|SubDistrict  |District   |Province      |PostalCode   |
+|------------ |---------- |------------- |------------ |
+|คลองต้นไทร   |คลองสาน    |กรุงเทพมหานคร  |10600        |
+|คลองสาน     |คลองสาน    |กรุงเทพมหานคร  |10600        |
+|บางลำภูล่าง    |คลองสาน    |กรุงเทพมหานคร  |10600       |
+
+
+```csharp
 string[] result = AddressTH.GetByWordsToStringComplete("บ้านไผ่");
+```
+
+``` ini
+
+{
+    "ตำบล บ้านลาน, อำเภอ บ้านไผ่, จังหวัด ขอนแก่น, รหัสไปรษณีย์ 40110",
+    "ตำบล บ้านไผ่, อำเภอ บ้านไผ่, จังหวัด ขอนแก่น, รหัสไปรษณีย์ 40110",
+    "ตำบล ป่าปอ, อำเภอ บ้านไผ่, จังหวัด ขอนแก่น, รหัสไปรษณีย์ 40110"
+}
+
 ```
