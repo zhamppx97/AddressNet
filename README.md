@@ -1,7 +1,12 @@
-<img src="img/icon.png" alt="Icon" width="120" />
+<img src="img/icon.png" alt="Icon" width="110" />
 
 ---
-## AddressNet
+## AddressNet v0.0.1
+
+[![][shield-badge]][linkto]
+
+[linkto]: https://learn.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-1
+[shield-badge]: https://img.shields.io/badge/.NET%20Standard%202.1-512BD4
 
 Minimal library to retrieve addresses in countries.
 
